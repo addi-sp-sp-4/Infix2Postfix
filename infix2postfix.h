@@ -10,8 +10,9 @@
 class Infix2Postfix {
 
     public:
-        Infix2Postfix(std::string infix);
-        std::string result;
+        Infix2Postfix();
+        std::string evaluate(std::string infix);
+        void example();
 
 };
 

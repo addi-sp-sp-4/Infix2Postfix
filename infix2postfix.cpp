@@ -3,14 +3,16 @@
 //
 
 #include "infix2postfix.h"
-
 #include <iostream>
-#include <string>
 #include <stack>
 #include <map>
 
+Infix2Postfix::Infix2Postfix()
+{
 
-Infix2Postfix::Infix2Postfix(std::string infix)
+}
+
+std::string Infix2Postfix::evaluate(std::string infix)
 {
     std::string postfix;
     std::stack<char> operators;
@@ -69,5 +71,15 @@ Infix2Postfix::Infix2Postfix(std::string infix)
         postfix += operators.top();
         operators.pop();
     }
-    result = postfix;
+    return postfix;
+}
+
+void Infix2Postfix::example()
+{
+    std::array<std::string, 5> infixes = {"5+6", "5*6-3", "9+4*7/6", "4-5-6-7", "4*6*4*0*9"};
+
+    for(unsigned i = 0; i < infixes.size(); i++)
+    {
+        std::cout << infixes[i] << " : " << evaluate(infixes[i]) << std::endl;
+    }
 }
